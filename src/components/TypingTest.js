@@ -6,17 +6,16 @@ import Modal from "./Modal";
 import './TypingTest.css';
 import Context from "./Context";
 
+
 function TypingTest() {
     let [text, setText] = useState("");
     let [userInput, setUserInput] = useState("");
     let [timer, setTimer] = useState(15);
     let [isRunning, setIsRunning] = useState(false);
     let [result ,setResult] = useState(false);
-    let [correctcharacters, setcorrectcharacters] = useState();
-    let [incorrectcharacters, setincorrectcharacters] = useState(0);
 
     useEffect(() => {
-        setText("This is a typing test. Try to type as many words per minute as you can. Press start to begin. Good luck!");
+        setText("Click on the 'Start' button to begin the test. Type the text displayed in the box as quickly and accurately as possible. Click on 'Restart' to restart the test and see your results."); 
     }, []);
 
     useEffect(() => {
@@ -29,31 +28,17 @@ function TypingTest() {
                         setResult(true);
                         return 15;
                     }
-                    return prevTimer - 1;}
-                    );
+                    return prevTimer - 1;
+                });
             }, 1000);
-
         }
         return () => clearInterval(intervalId);
     }, [isRunning]);
-    useEffect(() => {
-        // let correct = 0;
-        // let incorrect = 0;
-        // for (let i = 0; i < userInput.length; i++) {
-        //     if (userInput[i] === text[i]) {
-        //         correct++;
-        //     } else {
-        //         incorrect++;
-        //     }
-        // }
 
-        // setcorrectcharacters(correct);
-        // setincorrectcharacters(incorrect);
-    }, [userInput]);
     function onRestartClicked() {
         setTimer(15);
         setUserInput("");
-        setResult(false);
+        setResult(false);;
     }
 
     function onChangeHandler(event) {
@@ -66,15 +51,15 @@ function TypingTest() {
 
     return (
         <Context.Provider value={{correct:0,incorrect:0}}>
-        <React.Fragment>
-            <div style={{display:"flex",flexDirection:"column",alignItems:"center", justifyContent:"center"}}>
-                <Button>{timer}</Button>
-                <Button onStartClicked={onStartClicked}>Start</Button>
-                <TextDisplay text={text} userInput={userInput} setText={setText} />
-                <TextInput onChange={onChangeHandler} value={userInput} running={isRunning} />
-            </div>
-            {result && <Modal onRestartClicked={onRestartClicked}></Modal>}
-        </React.Fragment>
+            <React.Fragment>
+                <div style={{display:"flex",flexDirection:"column",alignItems:"center", justifyContent:"center"}}>
+                    <Button >{timer}</Button>
+                    <Button onStartClicked={onStartClicked} color="blue">Start</Button>
+                    <TextDisplay text={text} userInput={userInput} setText={setText} />
+                    <TextInput onChange={onChangeHandler} value={userInput} running={isRunning} />
+                </div>
+                {result && <Modal onRestartClicked={onRestartClicked}></Modal>}
+            </React.Fragment>
         </Context.Provider>
     );
 }

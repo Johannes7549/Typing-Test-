@@ -2,6 +2,7 @@ import React from 'react';
 import { useState,useEffect } from 'react';
 import Context from './Context';
 import modal from './Modal';
+import './TextDisplay.css';
 
 const TextDisplay = (props) => {
     let ctx = React.useContext(Context);
@@ -30,7 +31,7 @@ const TextDisplay = (props) => {
                     }
                   }
     
-                  return <span key={charIndex} style={{ color: color }}>{char}</span>;
+                  return <span key={charIndex} style={{ color: color }} className='spanfamily'>{char}</span>;
                 })}
                 <span> </span>
               </React.Fragment>

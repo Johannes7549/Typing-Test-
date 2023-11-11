@@ -1,6 +1,7 @@
 .modal-buttons{
     margin:25px 0px;
   }
+
   .btn{
     margin: 20px 5px;
     padding: 5px 20px;
@@ -17,7 +18,7 @@
     align-items: center;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,50%);
+    transform: translate(-50%,30%);
     width: 70%;
     background-color: white;
     padding: 50px 30px;

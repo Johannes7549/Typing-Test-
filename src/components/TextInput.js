@@ -1,5 +1,5 @@
 import React,{useRef,useEffect} from "react";
-
+import './TextInput.css';
 
 function TextInput(props){
     let inputReference = useRef()
@@ -9,7 +9,7 @@ function TextInput(props){
         }
     }, [props.running]);
     return (
-          <input type="text" className="border-0 border-bottom" onChange={props.onChange} disabled={!props.running} value={props.value} style={{outline: 'none'}} ref={inputReference} />
+          <input type="text" onChange={props.onChange} disabled={!props.running} value={props.value} style={{outline: 'none'}} ref={inputReference} />
     )
 };
 
