@@ -35,7 +35,14 @@
     background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(3px);
     z-index: 5;
+
   }
   .alert > h2, p, button{
     margin: 10px 0px;
+  }
+
+  .alert > button{
+    padding: 5px 20px;
+    border: 0px solid;
+    background-color:rgb(77, 81, 77);
   }
