@@ -7,6 +7,8 @@ input{
     background-color: transparent;
     padding: 0;
 }
+
+
 input:focus{
     outline: none;
     border-bottom: 1px solid #2f2fde;
